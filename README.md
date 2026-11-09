@@ -1,13 +1,23 @@
 # 面试预演技能包
 
-这是一套给 Muse 用的技能（Skill），作用是把目标岗位的 JD 和你自己的简历，变成一场贴身的模拟面试，而不是给你一份通用题库去背。
+这是一套遵循 **Agent Skills 开放标准**（agentskills.io）的技能（Skill），不绑任何一家 AI 工具。作用是把目标岗位的 JD 和你自己的简历，变成一场贴身的模拟面试，而不是给你一份通用题库去背。
+
+## 兼容哪些平台
+
+标准版技能位于 `skills/` 目录下，每个技能就是一个文件夹，里面只有一个带 YAML 元信息头的 `SKILL.md`，这是 Agent Skills 开放标准的统一格式。支持该标准的主流工具都可以直接使用，包括：
+
+- Claude Code、Claude、ChatGPT、OpenAI Codex
+- Cursor、Gemini CLI、GitHub Copilot、VS Code
+- OpenCode、OpenHands、Goose、Roo Code、Kiro 等其他遵循该标准的工具
+
+另外，仓库根目录保留了 **Muse 专用格式**（带 `skill.yaml` 的下划线文件夹），在 Muse 里可以照常使用，两种格式内容一致。
 
 ## 包含的技能
 
 | 技能 | 适用场景 |
 |---|---|
-| `general_interview_rehearsal`（全岗位通用版） | 任何岗位。先根据 JD 判断岗位类型，再按这个类型的面试风格出题和追问。 |
-| `software_testing_interview_rehearsal`（软件测试专属版） | 只适合软件测试岗位。会在测试用例设计、缺陷生命周期、接口测试、数据库校验和自动化测试上钻得更深。 |
+| `general-interview-rehearsal`（全岗位通用版） | 任何岗位。先根据 JD 判断岗位类型，再按这个类型的面试风格出题和追问。 |
+| `software-testing-interview-rehearsal`（软件测试专属版） | 只适合软件测试岗位。会在测试用例设计、缺陷生命周期、接口测试、数据库校验和自动化测试上钻得更深。 |
 
 选择原则：如果 JD 是测试岗，优先用测试专属版；其他岗位从通用版开始。
 
@@ -21,29 +31,44 @@
 
 练习模式有三种：速练模式（只练 3 个高风险问题，约 15 分钟）、完整模式、教学模式（先给示范答法，再往下练）。
 
+## 安装方法
+
+把 `skills/` 里需要的技能文件夹，复制到你所用工具的技能目录即可：
+
+| 工具 | 个人技能目录（所有项目可用） | 项目技能目录（仅当前项目） |
+|---|---|---|
+| 通用标准位置 | `~/.agents/skills/` | `.agents/skills/` |
+| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
+| OpenAI Codex、Gemini CLI、GitHub Copilot | `~/.agents/skills/` | `.agents/skills/` |
+| Cursor | `~/.cursor/skills/` | `.agents/skills/` |
+
+举例（通用版，装到通用标准位置）：
+
+```bash
+cp -r skills/general-interview-rehearsal ~/.agents/skills/
+```
+
+**Muse 用户**：不要复制 `skills/` 目录，请把仓库根目录的下划线文件夹（内含 `SKILL.md` 和 `skill.yaml`）复制到：
+
+```text
+~/workspace/custom-skills/<技能名>/
+```
+
 ## 使用方法
 
-1. 把需要的技能文件夹复制到你的 Muse 自定义技能目录：
-
-   ```text
-   ~/workspace/custom-skills/<技能名>/
-   ```
-
-   每个文件夹里都必须同时有 `SKILL.md` 和 `skill.yaml` 两个文件。
-
-2. 打开和 Muse 的对话，发给它这两样东西：
+1. 在你所用工具里打开对话，发给它这两样东西：
    - 目标岗位的 JD（文字、链接、截图、PDF 或 Word 都可以）
    - 你自己的简历（PDF、Word 或直接粘贴文字）
 
-3. 说一句下面任意一句即可开始：
+2. 说一句下面任意一句即可开始：
    - `开始面试预演`
    - `用这个 JD 帮我做面试预演`
 
-Muse 会先判断岗位类型，把 JD 和简历做对照，然后开始提第一个问题。
+AI 会先判断岗位类型，把 JD 和简历做对照，然后开始提第一个问题。
 
 ## 隐私说明
 
-本仓库的技能文件里不包含任何个人资料。你的 JD 和简历只会留在你自己的 Muse 工作区里，不属于本仓库的内容。
+本仓库的技能文件里不包含任何个人资料。你的 JD 和简历只会留在你自己所用工具的工作区里，不属于本仓库的内容。
 
 请不要把真实简历、手机号、邮箱等个人信息提交到公开仓库。
 
