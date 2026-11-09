@@ -1,53 +1,54 @@
-# Interview Rehearsal Skills 面试预演技能包
+# 面试预演技能包
 
-A pair of Muse skills that turn a target job description (JD) and your own resume into a personal mock interview, instead of a generic question bank.
+这是一套给 Muse 用的技能（Skill），作用是把目标岗位的 JD 和你自己的简历，变成一场贴身的模拟面试，而不是给你一份通用题库去背。
 
-把目标岗位的 JD 和你自己的简历，变成一场贴身的模拟面试，而不是背通用题库。
+## 包含的技能
 
-## Skills included
-
-| Skill | Use it for |
+| 技能 | 适用场景 |
 |---|---|
-| `general_interview_rehearsal` | Any role. It classifies the role family from the JD first, then adapts questions and follow-ups to that family. |
-| `software_testing_interview_rehearsal` | Software testing roles only. It drills deeper on test design, defect life cycle, interface testing, SQL checks and automation. |
+| `general_interview_rehearsal`（全岗位通用版） | 任何岗位。先根据 JD 判断岗位类型，再按这个类型的面试风格出题和追问。 |
+| `software_testing_interview_rehearsal`（软件测试专属版） | 只适合软件测试岗位。会在测试用例设计、缺陷生命周期、接口测试、数据库校验和自动化测试上钻得更深。 |
 
-Rule of thumb: if the JD is a testing role, prefer the testing skill. Otherwise start with the general skill.
+选择原则：如果 JD 是测试岗，优先用测试专属版；其他岗位从通用版开始。
 
-## How it works
+## 工作流程
 
-1. **Parse the JD** into must-have skills, duties, tools and bonus points.
-2. **Map the JD to your resume**, marking each item as strong evidence, weak evidence or missing.
-3. **Flag risk points**: resume claims with numbers, tools or projects that an interviewer can drill into.
-4. **Run the mock interview** one question at a time, with one or two follow-ups per answer, a 1 to 5 score, and a stronger version of your answer in your own words.
-5. **Compile a personal manual** with the JD breakdown, risk points, improved answers, a last-day checklist and your top 3 weak points.
+1. **拆解 JD**：把岗位要求拆成必备技能、日常职责、用到的工具和加分项。
+2. **对照简历**：把每一条 JD 要求和简历里的证据一一对应，标成「证据充分」「证据较弱」或「缺失」。
+3. **找出风险点**：简历里写了数字、工具、项目成果，但经不起追问的地方，会被提前挑出来。
+4. **模拟面试**：一次只问一道题，每道题追问 1 到 2 层，按 1 到 5 分打分，再把你的回答改成用你自己经历表达的更强版本。
+5. **整理成手册**：最后汇总成一份专属预演手册，包含 JD 拆解、风险点、改好的回答、考前清单，以及最容易被问倒的 3 个点。
 
-Session modes: quick round (3 high-risk questions), full round, and teaching mode (model answer first).
+练习模式有三种：速练模式（只练 3 个高风险问题，约 15 分钟）、完整模式、教学模式（先给示范答法，再往下练）。
 
-## Usage
+## 使用方法
 
-1. Copy a skill folder into your Muse custom skills directory:
+1. 把需要的技能文件夹复制到你的 Muse 自定义技能目录：
 
    ```text
-   ~/workspace/custom-skills/<skill_name>/
+   ~/workspace/custom-skills/<技能名>/
    ```
 
-   Each folder needs both `SKILL.md` and `skill.yaml`.
+   每个文件夹里都必须同时有 `SKILL.md` 和 `skill.yaml` 两个文件。
 
-2. Start a chat with Muse and provide:
-   - the target JD (text, link, screenshot, PDF or Word)
-   - your resume (PDF, Word or pasted text)
+2. 打开和 Muse 的对话，发给它这两样东西：
+   - 目标岗位的 JD（文字、链接、截图、PDF 或 Word 都可以）
+   - 你自己的简历（PDF、Word 或直接粘贴文字）
 
-3. Say one of:
-   - `开始面试预演` (start interview rehearsal)
-   - `Start an interview rehearsal for this JD`
+3. 说一句下面任意一句即可开始：
+   - `开始面试预演`
+   - `用这个 JD 帮我做面试预演`
 
-Muse will classify the role, map the JD to your resume, and start with the first question.
+Muse 会先判断岗位类型，把 JD 和简历做对照，然后开始提第一个问题。
 
-## Privacy note
+## 隐私说明
 
-These skill files contain no personal data. Your JD and resume stay in your own Muse workspace and are never part of this repository. Never commit a real resume, phone number or email address to a public repository.
+本仓库的技能文件里不包含任何个人资料。你的 JD 和简历只会留在你自己的 Muse 工作区里，不属于本仓库的内容。
 
-## Notes
+请不要把真实简历、手机号、邮箱等个人信息提交到公开仓库。
 
-- Answers are always built from your real resume. The skills explicitly forbid inventing experience, tools or numbers.
-- Re-run a short round after you revise your resume, so new wording gets tested before it reaches an interviewer.
+## 注意事项
+
+- 所有回答都只能基于你的真实简历生成，技能里明确禁止编造经历、工具和数字。
+- 简历里的数字如果记不清来源，会被标成「待核实」，不会被直接当成事实使用。
+- 改完简历之后，建议再跑一轮速练，让新写上去的说法先被追问一次，再拿去参加真正的面试。
